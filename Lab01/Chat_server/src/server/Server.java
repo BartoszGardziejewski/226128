@@ -1,5 +1,8 @@
 package server;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -17,6 +20,7 @@ public class Server {
 		
 		try {
 			sSocket = new ServerSocket(portNum);
+			clients = new ArrayList<>();
 			mainLoop();
 		}catch(Exception e)
 		{
@@ -38,9 +42,10 @@ public class Server {
 				e.printStackTrace();
 			}
 		}
+		
 	}
 	
 	public static void main(String... args){
-		new Server(4545);
+		new Server(4444);
 	}
 }
